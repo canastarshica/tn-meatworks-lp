@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>T.N. MEAT WORKS | 品川アトレ3F 肉料理専門店</title>
+  <meta name="description" content="焼きたてステーキとワインで楽しむ肉料理専門店。品川アトレ3FFOOD & TIME ISETANで本格ステーキ・ハンバーグをお楽しみください。">
+  <meta property="og:title" content="T.N. MEAT WORKS | 品川アトレ3F">
+  <meta property="og:description" content="焼きたてステーキとワインで楽しむ 肉料理専門店。品川アトレ3FFOOD & TIME ISETAN">
+  <meta property="og:type" content="restaurant.restaurant">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold:   #d2b48c;
+      --gold-lt: #e6c896;
+      --dark:   #d2b48c;
+      --dark2:  #c8a882;
+      --dark3:  #dcc0a0;
+      --cream:  #000000;
+      --gray:   #000000;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif JP", Georgia, serif;
+      background: var(--dark);
+      color: var(--cream);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ───── HERO ───── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem 1.5rem;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 70%, rgba(180, 90, 20, .25) 0%, transparent 70%),
+        linear-gradient(180deg, rgba(13,11,9,.78) 0%, rgba(26,17,8,.62) 50%, rgba(13,11,9,.82) 100%),
+        url('メイン画像.jpeg') center / cover no-repeat;
+    }
+
+    /* decorative embers */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle 2px at 20% 30%, rgba(201,151,58,.6) 0%, transparent 100%),
+        radial-gradient(circle 1px at 75% 20%, rgba(201,151,58,.5) 0%, transparent 100%),
+        radial-gradient(circle 3px at 60% 80%, rgba(201,151,58,.4) 0%, transparent 100%),
+        radial-gradient(circle 1px at 35% 60%, rgba(201,151,58,.5) 0%, transparent 100%),
+        radial-gradient(circle 2px at 85% 55%, rgba(201,151,58,.4) 0%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .hero-label {
+      font-size: .7rem;
+      letter-spacing: .3em;
+      color: #ffffff;
+      text-transform: uppercase;
+      margin-bottom: 1.4rem;
+      opacity: .85;
+    }
+
+    .hero-name {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: clamp(2.6rem, 10vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: .08em;
+      line-height: 1;
+      color: #ffffff;
+      margin-bottom: .6rem;
+    }
+
+    .hero-sub {
+      font-size: clamp(.75rem, 2.4vw, 1rem);
+      letter-spacing: .18em;
+      color: #ffffff;
+      margin-bottom: 1.6rem;
+    }
+
+    .divider-gold {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      margin: 0 auto 2rem;
+    }
+
+    .hero-catch {
+      font-size: clamp(1rem, 3.5vw, 1.35rem);
+      color: #ffffff;
+      letter-spacing: .06em;
+      line-height: 1.8;
+      margin-bottom: 2.4rem;
+      max-width: 480px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: .9rem 2.4rem;
+      border: 1.5px solid var(--gold);
+      color: #ffffff;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: .95rem;
+      letter-spacing: .2em;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: color .3s;
+    }
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .3s ease;
+      z-index: -1;
+    }
+    .btn-primary:hover { color: #ffffff; }
+    .btn-primary:hover::before { transform: scaleX(1); }
+
+    .hero-location {
+      margin-top: 2.6rem;
+      font-size: .78rem;
+      letter-spacing: .15em;
+      color: #ffffff;
+    }
+
+    /* flame icon */
+    .flame { font-size: 1.1em; }
+
+    /* scroll hint */
+    .scroll-hint {
+      position: absolute;
+      bottom: 1.8rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: #ffffff;
+      font-size: .65rem;
+      letter-spacing: .2em;
+      animation: fadeInUp 1.5s ease 1s both;
+    }
+    .scroll-hint span { display: block; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); }
+
+    /* ───── SECTION COMMON ───── */
+    section { padding: 5rem 1.5rem; }
+
+    .section-label {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: .65rem;
+      letter-spacing: .4em;
+      color: #000000;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: .8rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 5vw, 2.2rem);
+      text-align: center;
+      letter-spacing: .1em;
+      margin-bottom: .6rem;
+    }
+
+    .section-desc {
+      text-align: center;
+      color: var(--gray);
+      font-size: .9rem;
+      letter-spacing: .06em;
+      margin-bottom: 3rem;
+    }
+
+    /* ───── MENU ───── */
+    .menu { background: var(--dark2); }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .menu-card {
+      background: var(--dark3);
+      border: 1px solid rgba(201,151,58,.18);
+      overflow: hidden;
+      position: relative;
+      transition: transform .3s, border-color .3s;
+    }
+    .menu-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(201,151,58,.55);
+    }
+
+    .menu-visual {
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .menu-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+
+    .menu-badge {
+      position: absolute;
+      top: .8rem;
+      right: .8rem;
+      background: var(--gold);
+      color: #000000;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: .6rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      padding: .2rem .5rem;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .menu-body { padding: 1.2rem 1.4rem 1.5rem; }
+
+    .menu-name {
+      font-size: 1rem;
+      letter-spacing: .05em;
+      line-height: 1.5;
+      margin-bottom: .5rem;
+    }
+
+    .menu-price {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #d2691e;
+      letter-spacing: .02em;
+    }
+    .menu-price small {
+      font-size: .65rem;
+      color: var(--gray);
+      margin-left: .3rem;
+      font-weight: 400;
+      letter-spacing: .1em;
+    }
+
+    .menu-note {
+      margin-top: .5rem;
+      font-size: .75rem;
+      color: var(--gray);
+      letter-spacing: .04em;
+      line-height: 1.5;
+    }
+
+    /* ───── CONCEPT ───── */
+    .concept {
+      background: var(--dark);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .concept-inner { max-width: 680px; margin: 0 auto; }
+
+    .concept-text {
+      font-size: clamp(.92rem, 2.5vw, 1.05rem);
+      color: #000000;
+      letter-spacing: .08em;
+      line-height: 2;
+    }
+
+    .gold-line {
+      width: 1px;
+      height: 60px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+      margin: 2.5rem auto;
+    }
+
+    /* ───── CTA ───── */
+    .cta {
+      background:
+        radial-gradient(ellipse 70% 50% at 50% 50%, rgba(180, 90, 20, .15) 0%, transparent 70%),
+        var(--dark2);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(1.3rem, 4vw, 1.9rem);
+      letter-spacing: .1em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-sub {
+      color: var(--gray);
+      font-size: .88rem;
+      letter-spacing: .1em;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 2rem;
+      background: var(--gold);
+      color: #000000;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: .9rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-decoration: none;
+      transition: opacity .25s;
+    }
+    .btn-secondary:hover { opacity: .85; }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .85rem 2rem;
+      border: 1.5px solid rgba(201,151,58,.5);
+      color: #000000;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", serif;
+      font-size: .9rem;
+      letter-spacing: .15em;
+      text-decoration: none;
+      transition: background .25s, color .25s;
+    }
+    .btn-outline:hover { background: rgba(201,151,58,.1); }
+
+    /* ───── FOOTER ───── */
+    footer {
+      background: #c8a882;
+      padding: 2.5rem 1.5rem;
+      text-align: center;
+      border-top: 1px solid rgba(210,180,140,.3);
+    }
+
+    .footer-name {
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .25em;
+      color: #000000;
+      margin-bottom: .4rem;
+    }
+
+    .footer-info {
+      font-size: .73rem;
+      color: var(--gray);
+      letter-spacing: .1em;
+      line-height: 1.9;
+    }
+
+    .footer-links {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      font-size: .7rem;
+      color: #000000;
+      text-decoration: none;
+      letter-spacing: .1em;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: #000000; }
+
+    .footer-copy {
+      margin-top: 1.5rem;
+      font-size: .65rem;
+      color: #000000;
+      letter-spacing: .1em;
+    }
+
+    /* ───── ANIMATIONS ───── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero-label   { animation: fadeInUp .8s ease .1s both; }
+    .hero-name    { animation: fadeInUp .8s ease .25s both; }
+    .hero-sub     { animation: fadeInUp .8s ease .4s both; }
+    .divider-gold { animation: fadeInUp .8s ease .5s both; }
+    .hero-catch   { animation: fadeInUp .8s ease .55s both; }
+    .btn-primary  { animation: fadeInUp .8s ease .7s both; }
+    .hero-location{ animation: fadeInUp .8s ease .85s both; }
+
+    /* ───── RESPONSIVE ───── */
+    @media (max-width: 480px) {
+      section { padding: 4rem 1.2rem; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .btn-group { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══════════ HERO ═══════════ -->
+  <header class="hero" id="top">
+    <div class="hero-label" style="margin-bottom:1.4rem; opacity:.85;">
+      <img src="tnmeatworks.png" alt="T.N. MEAT WORKS" style="height:48px; width:auto; display:block; margin:0 auto;">
+    </div>
+    <h1 class="hero-name">T.N. MEAT WORKS</h1>
+    <p class="hero-sub">肉料理専門店</p>
+    <div class="divider-gold"></div>
+    <p class="hero-catch">本格肉料理とお酒が楽しめるお店。</p>
+    <a href="#menu" class="btn-primary">メニューを見る</a>
+    <p class="hero-location">&#128205; 品川アトレ3F FOOD & TIME ISETAN</p>
+    <div class="scroll-hint" aria-hidden="true">SCROLL<span></span></div>
+  </header>
+
+  <!-- ═══════════ MENU ═══════════ -->
+  <section class="menu" id="menu">
+    <p class="section-label">Recommended Set Menu</p>
+    <h2 class="section-title">おすすめメニュー</h2>
+    <p class="section-desc">素材の旨みを活かした、自慢の肉料理をお楽しみください。</p>
+
+    <div class="menu-grid">
+
+      <!-- 1 -->
+      <article class="menu-card">
+        <div class="menu-visual">
+          <img src="ワイルドミートプレート.jpeg" alt="ワイルドミートプレート">
+          <div class="menu-badge">POPULAR</div>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-name">ワイルドミートプレート</h3>
+          <p class="menu-price">¥2,200<small>税込</small></p>
+          <p class="menu-note">豪快な肉のプレートをワインと一緒に。肉好きのための贅沢な一皿。</p>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="menu-card">
+        <div class="menu-visual">
+          <img src="サーロインステーキライスセット.jpeg" alt="サーロインステーキライスセット">
+          <div class="menu-badge">STEAK</div>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-name">サーロインステーキ ライスセット</h3>
+          <p class="menu-price">¥1,580<small>税込</small></p>
+          <p class="menu-note">厳選サーロインを職人が焼き上げたステーキとライスのセット。</p>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="menu-card">
+        <div class="menu-visual">
+          <img src="和牛と国産豚のハンバーグ＆有頭エビフライ.jpeg" alt="和牛と国産豚のハンバーグ＆有頭エビフライ">
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-name">和牛と国産豚のハンバーグ<br>&amp; 有頭エビフライ ライスセット</h3>
+          <p class="menu-price">¥1,480<small>税込</small></p>
+          <p class="menu-note">和牛×国産豚の旨みたっぷりハンバーグと、豪快な有頭エビフライの贅沢セット。</p>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="menu-card">
+        <div class="menu-visual">
+          <img src="和%20牛と国産豚のハンバーグ%20%26かにクリームコロッケライスセット.jpeg" alt="和牛と国産豚のハンバーグ＆かにクリームコロッケライスセット">
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-name">和牛と国産豚のハンバーグ<br>&amp; かにクリームコロッケ ライスセット</h3>
+          <p class="menu-price">¥1,480<small>税込</small></p>
+          <p class="menu-note">ジューシーなハンバーグに、とろけるかにクリームコロッケを添えた人気セット。</p>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="menu-card">
+        <div class="menu-visual">
+          <img src="チキンステーキ ライスセット グレービーソース.jpeg" alt="チキンステーキライスセット　グレービーソース">
+          <div class="menu-badge">NEW</div>
+        </div>
+        <div class="menu-body">
+          <h3 class="menu-name">チキンステーキライスセット<br>グレービーソース</h3>
+          <p class="menu-price">¥1,000<small>税込</small></p>
+          <p class="menu-note">ジューシーなチキンステーキに濃厚グレービーソースをかけた満足の一皿。</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ═══════════ CONCEPT ═══════════ -->
+  <section style="padding: 5rem 1.5rem; background: var(--dark);">
+    <div class="concept-inner" style="max-width:680px; margin:0 auto; text-align:center;">
+      <p class="section-label">Our Concept</p>
+      <p class="concept-text" style="margin-top:2rem;">
+        T.N. MEAT WORKS は、厳選した良質な牛肉やおつまみを取り揃えた肉料理専門店です。焼きたてのステーキ、丁寧に仕込んだハンバーグ、ライスセットもご用意しております。ランチはもちろん、ディナーや土日の昼飲みになど様々なシーンでご利用いただけます。
+      </p>
+      <div class="gold-line"></div>
+      <p style="font-size:.78rem; letter-spacing:.2em; color: #000000;">MEAT &nbsp;·&nbsp; WINE &nbsp;·&nbsp; HAPPINESS</p>
+    </div>
+  </section>
+
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer>
+    <p class="footer-name">T.N. MEAT WORKS</p>
+    <p class="footer-info">
+      品川アトレ3F FOOD & TIME ISETAN<br>
+      JR 品川駅直結<br>
+      営業時間　10:00〜22:00<br>
+      TEL 03-5783-5035
+    </p>
+    <div class="footer-links">
+      <a href="#top">ページトップへ</a>
+    </div>
+    <p class="footer-copy">&copy; T.N. MEAT WORKS All Rights Reserved.</p>
+  </footer>
+
+</body>
+</html>
